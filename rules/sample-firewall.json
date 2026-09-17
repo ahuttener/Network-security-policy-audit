@@ -1,0 +1,14 @@
+{
+  "policy": "prod-edge-fw",
+  "rules": [
+    { "id": 10, "action": "allow", "src": "0.0.0.0/0",   "dst": "10.0.1.10", "port": "443",     "proto": "tcp", "desc": "Public HTTPS to web tier",     "owner": "web-team" },
+    { "id": 20, "action": "allow", "src": "10.0.1.0/24",  "dst": "10.0.2.20", "port": "5432",    "proto": "tcp", "desc": "Web tier to PostgreSQL",       "owner": "db-team" },
+    { "id": 30, "action": "allow", "src": "0.0.0.0/0",    "dst": "10.0.1.10", "port": "22",      "proto": "tcp", "desc": "SSH admin (temporary)",       "owner": "ops" },
+    { "id": 40, "action": "allow", "src": "0.0.0.0/0",    "dst": "10.0.2.20", "port": "3306",    "proto": "tcp", "desc": "Vendor DB access",            "owner": "ops" },
+    { "id": 50, "action": "allow", "src": "0.0.0.0/0",    "dst": "10.0.3.30", "port": "any",     "proto": "any", "desc": "Legacy app - allow all",      "owner": "" },
+    { "id": 60, "action": "allow", "src": "10.0.0.0/8",   "dst": "10.0.4.40", "port": "23",      "proto": "tcp", "desc": "Telnet to switch",            "owner": "net-team" },
+    { "id": 70, "action": "allow", "src": "10.0.0.0/8",   "dst": "10.0.5.50", "port": "8080",    "proto": "tcp", "desc": "Internal dashboard",          "owner": "platform" },
+    { "id": 80, "action": "allow", "src": "0.0.0.0/0",    "dst": "10.0.1.10", "port": "443",     "proto": "tcp", "desc": "Public HTTPS to web tier",     "owner": "web-team" },
+    { "id": 90, "action": "allow", "src": "203.0.113.7",  "dst": "10.0.6.60", "port": "9000",    "proto": "tcp" }
+  ]
+}
